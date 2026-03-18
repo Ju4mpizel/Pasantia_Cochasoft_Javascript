@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios</title>
+  </head>
+  <body>
+    <h1>Ejercicios parte 1</h1>
+    <script>
+      const contarLetras = (cadena = "") => {
+        if (!cadena) return console.warn("No ingresaste una cadena de texto");
+        if (typeof cadena !== "string")
+          return console.error(
+            `El valor "${cadena}" ingresado, No es una cadena de texto`,
+          );
+        let vocales = 0,
+          consonantes = 0;
+
+        for (let letra of cadena) {
+          if (/ÁÉÍÓÚAEIOUaeiouáéíóú/.test(letra)) {
+            vocales++;
+          }
+          if (/BCDFGHJKLMNÑOPQRSTVWXYZbcdfghjklmnñopqrstvwxyz/.test(letra)) {
+            consonante++;
+          }
+        }
+        return console.info({
+          cadena,
+          vocales,
+          consonantes,
+        });
+
+        contarLetras();
+        contarLetras(3);
+        contarLetras("Hola Mundo");
+        contarLetras("Ñoño");
+      };
+
+      const validarEmail = (email = "") => {
+        if (!email) return console.warn("No ingresaste un email");
+
+        if (typeof email !== "string")
+          return console.error(
+            `El valor "${email}" ingresado, NO es una cadena de texto`,
+          );
+
+        let expReg =
+          /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(
+            email,
+          );
+
+        return expReg
+          ? console.info(`${email}`, "es un email válido")
+          : console.warn(`${email}`, "NO es un email válido");
+      };
+      validarEmail();
+      validarEmail(34);
+      validarEmail("juampizel@gmail.com");
+    </script>
+  </body>
+</html>
