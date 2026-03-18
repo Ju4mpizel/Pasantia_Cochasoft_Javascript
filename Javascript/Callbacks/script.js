@@ -9,3 +9,4 @@ function calcular(num1, num2, colback) {
 }
 
 calcular(1, 2, mostrarConsola);
+//Con esto termina el avance
